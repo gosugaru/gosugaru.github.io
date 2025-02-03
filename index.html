@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gosugaru</title>
+    <meta name="description" content="My personal website <3 ">
+    <meta property="og:title" content="Gosugaru">
+    <meta property="og:description" content="My personal website <3 ">
+    <meta property="og:image" content="https://files.catbox.moe/xgg8yx.png">
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: hidden;
+            font-family: 'Arial', sans-serif;
+            color: #ffffff;
+            background-color: #00000028;
+        }
+        #background {
+            position: fixed;
+            top: -12.5%;
+            left: -12.5%;
+            width: 125%;
+            height: 125%;
+            background: url('https://files.catbox.moe/dmvbbo.jpeg') no-repeat center center;
+            background-size: cover;
+            z-index: -1;
+            opacity: 0.5;
+            transition: opacity 2s, transform 0.1s;
+        }
+        #content {
+            position: relative;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 2s, transform 2s;
+            background-color: rgba(0, 0, 0, 0.256);
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        #profile-pic {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            transition: transform 0.3s;
+            opacity: 0;
+            transform: scale(0.8);
+        }
+        #profile-pic:hover {
+            transform: scale(1.1);
+        }
+        #bio {
+            max-width: 600px;
+            text-align: center;
+            margin: 20px 0;
+        }
+        #footer {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.307);
+            padding: 10px 0;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+        #footer-text {
+            display: inline-block;
+            padding-left: 100%;
+            animation: scroll-left 20s linear infinite;
+            color: #00bfff;
+        }
+        @keyframes scroll-left {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(-100%, 0); }
+        }
+        #title-scroll {
+            white-space: nowrap;
+            overflow: hidden;
+            width: 100%;
+            text-align: center;
+        }
+        #title-text {
+            display: inline-block;
+            padding-left: 100%;
+            animation: scroll-left 50s linear infinite;
+            color: #00bfff;
+            opacity: 0.3;
+        }
+        h1, h2 {
+            color: #00bfff;
+        }
+    </style>
+</head>
+<body>
+    <div id="background"></div>
+    <div id="content">
+        <div id="title-scroll">
+            <h1 id="title-text">Another wander in the night, Let me paint the view, Colour a town with my light, For every moment shared with you, Not out in the day, But never fully gone, Going to be back again, Until the coming of a dawn</h1>
+        </div>
+        <img id="profile-pic" src="https://files.catbox.moe/xgg8yx.png" alt="Gosugaru Profile Picture">
+        <div id="bio">
+            <h2>Olá! I'm Gosugaru</h2>
+            <p>I love cybersec! I also like to make music and play videogames. Thank you for visiting my site!!!</p>
+        </div>
+    </div>
+    <div id="footer">
+        <div id="footer-text"></div>
+    </div>
+    <audio id="bgMusic" loop>
+        <source src="https://files.catbox.moe/vsdwz7.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+    <script>
+        const footerMessages = [
+            "meow",
+        ];
+
+        const footerText = document.getElementById('footer-text');
+        footerText.textContent = footerMessages.join(' • ');
+
+        const bgMusic = document.getElementById('bgMusic');
+        const background = document.getElementById('background');
+        const content = document.getElementById('content');
+        const profilePic = document.getElementById('profile-pic');
+        let isPlaying = false;
+
+        function animateBackground() {
+            let opacity = 0.5;
+            let increasing = true;
+            setInterval(() => {
+                if (increasing) {
+                    opacity += 0.005;
+                    if (opacity >= 0.75) increasing = false;
+                } else {
+                    opacity -= 0.005;
+                    if (opacity <= 0.5) increasing = true;
+                }
+                background.style.opacity = opacity;
+            }, 50);
+        }
+
+        function initializePage() {
+            content.style.opacity = 1;
+            content.style.transform = 'translateY(0)';
+            profilePic.style.opacity = 1;
+            profilePic.style.transform = 'scale(1)';
+            animateBackground();
+        }
+
+        document.addEventListener('mousemove', function(event) {
+            if (!isPlaying) {
+                bgMusic.play().then(() => {
+                    isPlaying = true;
+                    initializePage();
+                }).catch(error => {
+                    console.error('Audio playback failed:', error);
+                    initializePage();
+                });
+            }
+            
+            const x = event.clientX / window.innerWidth - 0.5;
+            const y = event.clientY / window.innerHeight - 0.5;
+            background.style.transform = `translate(${x * 10}px, ${y * 10}px)`;
+        });
+
+        // Fallback in case mousemove doesn't trigger (e.g., mobile devices)
+        window.addEventListener('load', function() {
+            setTimeout(initializePage, 1000);
+        });
+    </script>
+</body>
+</html>
