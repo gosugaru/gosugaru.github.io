@@ -7,28 +7,38 @@
     <meta name="description" content="My personal website <3 ">
     <meta property="og:title" content="Gosugaru">
     <meta property="og:description" content="My personal website <3 ">
-    <meta property="og:image" content="https://files.catbox.moe/xgg8yx.png">
+    <meta property="og:image" content="pfp.jpg">
     <style>
+        @font-face {
+            font-family: 'TitleFont';
+            src: url('title.ttf') format('truetype');
+        }
+        @font-face {
+            font-family: 'BackFont';
+            src: url('back.ttf') format('truetype');
+        }
+        @font-face {
+            font-family: 'BodyFont';
+            src: url('body.ttf') format('truetype');
+        }
+        
         body, html {
             margin: 0;
             padding: 0;
             height: 100%;
             overflow: hidden;
-            font-family: 'Arial', sans-serif;
+            font-family: 'BodyFont', sans-serif;
             color: #ffffff;
             background-color: #00000028;
         }
-        #background {
+        #background-video {
             position: fixed;
-            top: -12.5%;
-            left: -12.5%;
-            width: 125%;
-            height: 125%;
-            background: url('https://files.catbox.moe/dmvbbo.jpeg') no-repeat center center;
-            background-size: cover;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
             z-index: -1;
-            opacity: 0.5;
-            transition: opacity 2s, transform 0.1s;
         }
         #content {
             position: relative;
@@ -40,7 +50,7 @@
             opacity: 0;
             transform: translateY(20px);
             transition: opacity 2s, transform 2s;
-            background-color: rgba(0, 0, 0, 0.256);
+            background: linear-gradient(to bottom, transparent, #00000065 33%, #00000065 66%);
             padding: 20px;
             box-sizing: border-box;
         }
@@ -48,6 +58,8 @@
             width: 150px;
             height: 150px;
             border-radius: 50%;
+            border: 5px solid;
+            border-color: rgba(255, 255, 255, 0.404) #00bfff85;
             transition: transform 0.3s;
             opacity: 0;
             transform: scale(0.8);
@@ -60,6 +72,14 @@
             text-align: center;
             margin: 20px 0;
         }
+        #bio p {
+            margin: 0;
+        }
+        #thank-you {
+            color: #00bfff;
+            animation: glow 5s ease-in-out infinite alternate;
+            margin-top: 5px;
+        }
         #footer {
             position: fixed;
             bottom: 0;
@@ -68,92 +88,123 @@
             padding: 10px 0;
             white-space: nowrap;
             overflow: hidden;
+            text-align: center;
         }
         #footer-text {
             display: inline-block;
             padding-left: 100%;
-            animation: scroll-left 20s linear infinite;
+            animation: scroll-left 100s linear infinite;
             color: #00bfff;
+        }
+        .social-links {
+            margin-top: 10px;
+        }
+        .social-links a {
+            color: #00bfff;
+            text-decoration: none;
+            margin: 0 10px;
+            transition: color 0.3s;
+        }
+        .social-links a:hover {
+            color: white;
         }
         @keyframes scroll-left {
             0% { transform: translate(0, 0); }
             100% { transform: translate(-100%, 0); }
         }
-        #title-scroll {
+        .title-text {
+            position: absolute;
             white-space: nowrap;
             overflow: hidden;
-            width: 100%;
-            text-align: center;
-        }
-        #title-text {
-            display: inline-block;
-            padding-left: 100%;
-            animation: scroll-left 50s linear infinite;
             color: #00bfff;
             opacity: 0.3;
+            font-family: 'BackFont', sans-serif;
+        }
+        #title-text-1 {
+            top: 5%;
+            left: 10%;
+            font-size: 24px;
+            animation: scroll-left 50s linear infinite;
+        }
+        #title-text-2 {
+            top: 20%;
+            right: 10%;
+            font-size: 20px;
+            animation: scroll-left 40s linear infinite;
+        }
+        #title-text-3 {
+            top: 35%;
+            left: 5%;
+            font-size: 18px;
+            animation: scroll-left 60s linear infinite;
+        }
+        #title-text-4 {
+            top: 50%;
+            right: 5%;
+            font-size: 22px;
+            animation: scroll-left 45s linear infinite;
         }
         h1, h2 {
             color: #00bfff;
         }
+        h2 {
+            font-family: 'TitleFont', sans-serif;
+            animation: glow 10s ease-in-out infinite alternate;
+        }
+        @keyframes glow {
+            from {
+                text-shadow: 0 0 10px #00bfff, 0 0 20px #00bfff, 0 0 30px #00bfff;
+            }
+            to {
+                text-shadow: 0 0 20px #ffffff49, 0 0 30px #ffffff81, 0 0 40px #ffffff2f;
+            }
+        }
     </style>
 </head>
 <body>
-    <div id="background"></div>
+    <video id="background-video" autoplay loop muted playsinline>
+        <source src="bg.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
     <div id="content">
-        <div id="title-scroll">
-            <h1 id="title-text">Another wander in the night, Let me paint the view, Colour a town with my light, For every moment shared with you, Not out in the day, But never fully gone, Going to be back again, Until the coming of a dawn</h1>
-        </div>
-        <img id="profile-pic" src="https://files.catbox.moe/xgg8yx.png" alt="Gosugaru Profile Picture">
+        <h1 id="title-text-1" class="title-text">Another wander in the night...</h1>
+        <h1 id="title-text-2" class="title-text">Let me paint the view...</h1>
+        <h1 id="title-text-3" class="title-text">Colour a town with my light...</h1>
+        <h1 id="title-text-4" class="title-text">For every moment shared with you...</h1>
+        <img id="profile-pic" src="pfp.jpg" alt="my pfp lmfao">
         <div id="bio">
-            <h2>Olá! I'm Gosugaru</h2>
-            <p>I love cybersec! I also like to make music and play videogames. Thank you for visiting my site!!!</p>
+            <h2><span style="animation: glow 1.5s ease-in-out infinite alternate;">GOSUGARU</span></h2>
+            <p>I love cybersec! I also like to make music and play videogames.</p>
+            <p id="thank-you">Thank you for visiting my site!!!</p>
         </div>
     </div>
     <div id="footer">
         <div id="footer-text"></div>
+        <div class="social-links">
+            <a href="https://github.com/gosugaru" target="_blank">GitHub</a> • 
+            <a href="https://discord.gg/yourinvite" target="_blank">Discord</a>
+        </div>
     </div>
     <audio id="bgMusic" loop>
-        <source src="https://files.catbox.moe/vsdwz7.mp3" type="audio/mpeg">
+        <source src="music.mp3" type="audio/mpeg">
         Your browser does not support the audio element.
     </audio>
-
     <script>
         const footerMessages = [
-            "meow",
+            "LO, a Shadow of horror is risen In Eternity! unknown, unprolific, Self-clos’d, all-repelling. What Demon Hath form’d this abominable Void, This soul-shudd’ring Vacuum? Some said It is Urizen. But unknown, abstracted, Brooding, secret, the dark Power hid. Times on times he divided, and measur’d Space by space in his ninefold darkness, Unseen, unknown; changes appear’d Like desolate mountains, rifted furious By the black winds of perturbation. For he strove in battles dire, In unseen conflictions with Shapes, Bred from his forsaken wilderness, Of beast, bird, fish, serpent, and element, Combustion, blast, vapour, and cloud. Dark, revolving in silent activity, Unseen in tormenting passions, An Activity unknown and horrible, A self-contemplating Shadow, In enormous labours occupièd. But Eternals beheld his vast forests; Ages on ages he lay, clos’d, unknown, Brooding, shut in the deep; all avoid The petrific, abominable Chaos. His cold horrors, silent, dark Urizen Prepar’d; his ten thousands of thunders, Rang’d in gloom’d array, stretch out across The dread world; and the rolling of wheels, As of swelling seas, sound in his clouds, In his hills of stor’d snows, in his mountains Of hail and ice; voices of terror Are heard, like thunders of autumn, When the cloud blazes over the harvests. ",
         ];
-
         const footerText = document.getElementById('footer-text');
         footerText.textContent = footerMessages.join(' • ');
-
         const bgMusic = document.getElementById('bgMusic');
-        const background = document.getElementById('background');
         const content = document.getElementById('content');
         const profilePic = document.getElementById('profile-pic');
         let isPlaying = false;
-
-        function animateBackground() {
-            let opacity = 0.5;
-            let increasing = true;
-            setInterval(() => {
-                if (increasing) {
-                    opacity += 0.005;
-                    if (opacity >= 0.75) increasing = false;
-                } else {
-                    opacity -= 0.005;
-                    if (opacity <= 0.5) increasing = true;
-                }
-                background.style.opacity = opacity;
-            }, 50);
-        }
-
         function initializePage() {
             content.style.opacity = 1;
             content.style.transform = 'translateY(0)';
             profilePic.style.opacity = 1;
             profilePic.style.transform = 'scale(1)';
-            animateBackground();
         }
-
         document.addEventListener('mousemove', function(event) {
             if (!isPlaying) {
                 bgMusic.play().then(() => {
@@ -164,15 +215,10 @@
                     initializePage();
                 });
             }
-            
-            const x = event.clientX / window.innerWidth - 0.5;
-            const y = event.clientY / window.innerHeight - 0.5;
-            background.style.transform = `translate(${x * 10}px, ${y * 10}px)`;
         });
-
         // Fallback in case mousemove doesn't trigger (e.g., mobile devices)
         window.addEventListener('load', function() {
-            setTimeout(initializePage, 1000);
+            setTimeout(initializePage, 0);
         });
     </script>
 </body>
