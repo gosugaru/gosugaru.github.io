@@ -21,7 +21,6 @@
             font-family: 'BodyFont';
             src: url('body.ttf') format('truetype');
         }
-        
         body, html {
             margin: 0;
             padding: 0;
@@ -162,7 +161,7 @@
     </style>
 </head>
 <body>
-    <video id="background-video" autoplay loop muted playsinline>
+    <video id="background-video" autoplay loop muted playsinline preload="auto">
         <source src="bg.mp4" type="video/mp4">
         Your browser does not support the video tag.
     </video>
@@ -182,7 +181,7 @@
         <div id="footer-text"></div>
         <div class="social-links">
             <a href="https://github.com/gosugaru" target="_blank">GitHub</a> • 
-            <a href="https://discord.gg/yourinvite" target="_blank">Discord</a>
+            <a href="https://discord.gg/hellhole" target="_blank">Discord</a>
         </div>
     </div>
     <audio id="bgMusic" loop>
@@ -196,6 +195,7 @@
         const footerText = document.getElementById('footer-text');
         footerText.textContent = footerMessages.join(' • ');
         const bgMusic = document.getElementById('bgMusic');
+        const bgVideo = document.getElementById('background-video');
         const content = document.getElementById('content');
         const profilePic = document.getElementById('profile-pic');
         let isPlaying = false;
@@ -204,6 +204,7 @@
             content.style.transform = 'translateY(0)';
             profilePic.style.opacity = 1;
             profilePic.style.transform = 'scale(1)';
+            bgVideo.play();
         }
         document.addEventListener('mousemove', function(event) {
             if (!isPlaying) {
@@ -211,7 +212,6 @@
                     isPlaying = true;
                     initializePage();
                 }).catch(error => {
-                    console.error('Audio playback failed:', error);
                     initializePage();
                 });
             }
