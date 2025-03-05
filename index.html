@@ -1,184 +1,184 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gosugaru</title>
-    <meta name="description" content="My personal website <3 ">
-    <meta property="og:title" content="Gosugaru">
-    <meta property="og:description" content="My personal website <3 ">
-    <meta property="og:image" content="pfp.jpg">
-    <style>
-        @font-face {
-            font-family: 'TitleFont';
-            src: url('title.ttf') format('truetype');
-        }
-        @font-face {
-            font-family: 'BackFont';
-            src: url('back.ttf') format('truetype');
-        }
-        @font-face {
-            font-family: 'BodyFont';
-            src: url('body.ttf') format('truetype');
-        }
-        body, html {
-            margin: 0;
-            padding: 0;
-            height: 100%;
-            overflow: hidden;
-            font-family: 'BodyFont', sans-serif;
-            color: #00FFFFFF;
-            background-color: #00FFFFFF; / Fallback color /
-        }
-        #background-video {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            object-fit: cover;
-            z-index: -1;
-        }
-        #content {
-            position: relative;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 2s, transform 2s;
-            background: linear-gradient(to bottom, transparent, #00000065 33%, #00000065 66%);
-            padding: 20px;
-            box-sizing: border-box;
-        }
-        #profile-pic {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            border: 5px solid;
-            border-color: rgba(255, 255, 255, 0.404) #ff69b485;
-            transition: transform 0.3s;
-            opacity: 0;
-            transform: scale(0.8);
-        }
-        #profile-pic:hover {
-            transform: scale(1.1);
-        }
-        #bio {
-            max-width: 600px;
-            text-align: center;
-            margin: 20px 0;
-        }
-        #bio p {
-            margin: 0;
-        }
-        #thank-you {
-            color: #ff69b4;
-            animation: glow 5s ease-in-out infinite alternate;
-            margin-top: 5px;
-        }
-        #footer {
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-            background-color: rgba(0, 0, 0, 0.307);
-            padding: 10px 0;
-            white-space: nowrap;
-            overflow: hidden;
-            text-align: center;
-        }
-        #footer-text {
-            display: inline-block;
-            padding-left: 100%;
-            animation: scroll-left 100s linear infinite;
-            color: #ff69b4;
-        }
-        .social-links a {
-            color: #ff69b4;
-            text-decoration: none;
-            margin: 0 10px;
-            transition: color 0.3s;
-        }
-        .social-links a:hover {
-            color: white;
-        }
-        @keyframes scroll-left {
-            0% { transform: translate(0, 0); }
-            100% { transform: translate(-100%, 0); }
-        }
-        h1, h2 {
-            color: #ff69b4;
-        }
-        h2 {
-            font-family: 'TitleFont', sans-serif;
-            animation: glow 10s ease-in-out infinite alternate;
-        }
-        @keyframes glow {
-            from {
-                text-shadow: 0 0 10px #ff69b4, 0 0 20px #ff69b4, 0 0 30px #ff69b4;
-            }
-            to {
-                text-shadow: 0 0 20px #ffffff49, 0 0 30px #ffffff81, 0 0 40px #ffffff2f;
-            }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gosugaru</title>
+  <meta name="description" content="My personal website <3 ">
+  <meta property="og:title" content="Gosugaru">
+  <meta property="og:description" content="My personal website <3 ">
+  <meta property="og:image" content="pfp.jpg">
+  <style>
+    @font-face {
+      font-family: 'TitleFont';
+      src: url('title.ttf') format('truetype');
+    }
+    @font-face {
+      font-family: 'BackFont';
+      src: url('back.ttf') format('truetype');
+    }
+    @font-face {
+      font-family: 'BodyFont';
+      src: url('body.ttf') format('truetype');
+    }
+    body, html {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      overflow: hidden;
+      font-family: 'BodyFont', sans-serif;
+      color: #00FFFFFF;
+      background-color: #00FFFFFF; /* Fallback color */
+    }
+    #background-video {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      object-fit: cover;
+      z-index: -1;
+    }
+    #content {
+      position: relative;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 2s, transform 2s;
+      background: linear-gradient(to bottom, transparent, #00000065 33%, #00000065 66%);
+      padding: 20px;
+      box-sizing: border-box;
+    }
+    #profile-pic {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      border: 5px solid;
+      border-color: rgba(255, 255, 255, 0.404) #ff69b485;
+      transition: transform 0.3s;
+      opacity: 0;
+      transform: scale(0.8);
+    }
+    #profile-pic:hover {
+      transform: scale(1.1);
+    }
+    #bio {
+      max-width: 600px;
+      text-align: center;
+      margin: 20px 0;
+    }
+    #bio p {
+      margin: 0;
+    }
+    #thank-you {
+      color: #ff69b4;
+      animation: glow 5s ease-in-out infinite alternate;
+      margin-top: 5px;
+    }
+    #footer {
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      background-color: rgba(0, 0, 0, 0.307);
+      padding: 10px 0;
+      white-space: nowrap;
+      overflow: hidden;
+      text-align: center;
+    }
+    #footer-text {
+      display: inline-block;
+      padding-left: 100%;
+      animation: scroll-left 100s linear infinite;
+      color: #ff69b4;
+    }
+    .social-links a {
+      color: #ff69b4;
+      text-decoration: none;
+      margin: 0 10px;
+      transition: color 0.3s;
+    }
+    .social-links a:hover {
+      color: white;
+    }
+    @keyframes scroll-left {
+      0% { transform: translate(0, 0); }
+      100% { transform: translate(-100%, 0); }
+    }
+    h1, h2 {
+      color: #ff69b4;
+    }
+    h2 {
+      font-family: 'TitleFont', sans-serif;
+      animation: glow 10s ease-in-out infinite alternate;
+    }
+    @keyframes glow {
+      from {
+        text-shadow: 0 0 10px #ff69b4, 0 0 20px #ff69b4, 0 0 30px #ff69b4;
+      }
+      to {
+        text-shadow: 0 0 20px #ffffff49, 0 0 30px #ffffff81, 0 0 40px #ffffff2f;
+      }
+    }
+  </style>
 </head>
 <body>
-    <video id="background-video" autoplay loop muted playsinline preload="auto">
-        <source src="bg.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-    </video>
-    <div id="content">
-        <img id="profile-pic" src="pfp.jpg" alt="my pfp lmfao">
-        <div id="bio">
-            <h2><span style="animation: glow 1.5s ease-in-out infinite alternate;">GOSUGARU</span></h2>
-            <p>I love cybersec! I also like to make music and play videogames.</p>
-            <p id="thank-you">Thank you for visiting my site!!!</p>
-        </div>
+  <video id="background-video" autoplay loop muted playsinline preload="auto">
+    <source src="bg.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+  <div id="content">
+    <img id="profile-pic" src="pfp.jpg" alt="my pfp lmfao">
+    <div id="bio">
+      <h2><span style="animation: glow 1.5s ease-in-out infinite alternate;">GOSUGARU</span></h2>
+      <p>I love cybersec! I also like to make music and play videogames.</p>
+      <p id="thank-you">Thank you for visiting my site!!!</p>
     </div>
-    <div id="footer">
-        <div id="footer-text">LO, a Shadow of horror is risen In Eternity! unknown, unprolific, Self-clos’d, all-repelling...</div>
-        <div class="social-links">
-            <a href="https://github.com/gosugaru" target="_blank">GitHub</a> • 
-            <a href="https://discord.gg/hellhole" target="_blank">Discord</a>
-        </div>
+  </div>
+  <div id="footer">
+    <div id="footer-text">LO, a Shadow of horror is risen In Eternity! unknown, unprolific, Self-clos’d, all-repelling...</div>
+    <div class="social-links">
+      <a href="https://github.com/gosugaru" target="_blank">GitHub</a> • 
+      <a href="https://discord.gg/hellhole" target="_blank">Discord</a>
     </div>
-    <audio id="bgMusic" loop>
-        <source src="music.mp3" type="audio/mpeg">
-        Your browser does not support the audio element.
-    </audio>
-    <script>
-        const bgMusic = document.getElementById('bgMusic');
-        const bgVideo = document.getElementById('background-video');
-        const content = document.getElementById('content');
-        const profilePic = document.getElementById('profile-pic');
-        let isPlaying = false;
-        function initializePage() {
-            content.style.opacity = 1;
-            content.style.transform = 'translateY(0)';
-            profilePic.style.opacity = 1;
-            profilePic.style.transform = 'scale(1)';
-            bgVideo.play().catch(error => console.error('Video playback failed:', error));
-        }
-        window.addEventListener('resize', function() {
-            bgVideo.style.width = window.innerWidth + 'px';
-            bgVideo.style.height = window.innerHeight + 'px';
+  </div>
+  <audio id="bgMusic" loop>
+    <source src="music.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+  <script>
+    const bgMusic = document.getElementById('bgMusic');
+    const bgVideo = document.getElementById('background-video');
+    const content = document.getElementById('content');
+    const profilePic = document.getElementById('profile-pic');
+    let isPlaying = false;
+    function initializePage() {
+      content.style.opacity = 1;
+      content.style.transform = 'translateY(0)';
+      profilePic.style.opacity = 1;
+      profilePic.style.transform = 'scale(1)';
+      bgVideo.play().catch(error => console.error('Video playback failed:', error));
+    }
+    window.addEventListener('resize', function() {
+      bgVideo.style.width = window.innerWidth + 'px';
+      bgVideo.style.height = window.innerHeight + 'px';
+    });
+    document.addEventListener('mousemove', function() {
+      if (!isPlaying) {
+        bgMusic.play().then(() => {
+          isPlaying = true;
+          initializePage();
+        }).catch(error => {
+          initializePage();
         });
-        document.addEventListener('mousemove', function() {
-            if (!isPlaying) {
-                bgMusic.play().then(() => {
-                    isPlaying = true;
-                    initializePage();
-                }).catch(error => {
-                    initializePage();
-                });
-            }
-        });
-        window.addEventListener('load', function() {
-            setTimeout(initializePage, 0);
-        });
-    </script>
+      }
+    });
+    window.addEventListener('load', function() {
+      setTimeout(initializePage, 0);
+    });
+  </script>
 </body>
 </html>
